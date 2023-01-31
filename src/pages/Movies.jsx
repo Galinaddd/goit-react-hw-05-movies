@@ -1,13 +1,15 @@
+// import { MoviesList } from 'components/MoviesList/MoviesList';
+import { SearchBox } from 'components/Searchbox/SearchBox';
 export const Movies = () => {
+  const onSearchClick = search => {
+    console.log(search);
+  };
+
   return (
     <main>
       <h1>Movies</h1>
-      <img src="https://via.placeholder.com/960x240" alt="" />
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto,
-        laboriosam placeat incidunt rem illum animi nemo quibusdam quia
-        voluptatum voluptate.
-      </p>
+      <SearchBox onClick={onSearchClick}></SearchBox>
+      {/* <MoviesList movies={visibleMovies} /> */}
     </main>
   );
 };

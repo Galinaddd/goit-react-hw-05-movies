@@ -7,7 +7,7 @@ export const fetchTraiding = async () => {
   const responce = await axios.get(
     `${BASE_URL}/trending/all/day?api_key=${KEY}`
   );
-  return responce.data;
+  return responce.data.results;
 };
 
 export const fetchSearchMovie = async query => {
