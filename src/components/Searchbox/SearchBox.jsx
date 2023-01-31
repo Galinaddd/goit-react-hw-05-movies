@@ -1,15 +1,29 @@
 import { Formik, Form, Field } from 'formik';
 
-export const SearchBox = ({ onSubmit }) => {
-  const handleSubmit = values => {
+export const SearchBox = ({ onClick }) => {
+  console.log('before submit');
+  const handleSubmit = (values, { resetForm }) => {
+    console.log('in submit');
     console.log(values);
-    onSubmit(values);
+    onClick(values);
+    resetForm();
   };
 
+  //   const handleSubmit = evt => {
+  //     console.log(evt.target.value);
+  //     onClick(evt);
+  //   };
+
   return (
-    <Formik onSubmit={handleSubmit}>
+    <Formik
+      initialValues={{
+        search: '',
+      }}
+      onSubmit={handleSubmit}
+    >
       <Form>
-        <Field type="text" name="search"></Field>
+        <Field type="text" name="search" />
+
         <button type="submit">Submit</button>
       </Form>
     </Formik>
