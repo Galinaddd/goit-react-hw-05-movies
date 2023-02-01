@@ -1,12 +1,13 @@
 import { Formik, Form, Field } from 'formik';
+import { useSearchParams } from 'react-router-dom';
 
 export const SearchBox = ({ onClick }) => {
-  console.log('before submit');
+  const [searchParams, setSearchParams] = useSearchParams('');
   const handleSubmit = (values, { resetForm }) => {
-    console.log('in submit');
-    console.log(values);
     onClick(values);
     resetForm();
+    console.log('values', values.search);
+    setSearchParams({ search: values.search });
   };
 
   //   const handleSubmit = evt => {

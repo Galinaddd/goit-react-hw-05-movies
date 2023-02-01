@@ -9,7 +9,7 @@ export const Reviews = () => {
   useEffect(() => {
     const getmovieReviewsID = async () => {
       const getmovieReviews = await fetchMovieReviews(movieId);
-      console.log('getmovieReviews', getmovieReviews);
+
       setReviews(getmovieReviews);
     };
 
@@ -17,14 +17,13 @@ export const Reviews = () => {
   }, [movieId]);
 
   return (
-    <>
-      <p>Reviews</p>
+    <ul>
       {reviews.map(review => (
-        <>
+        <li key={review.id}>
           <h4>Author {review.author}</h4>
           <p>{review.content}</p>
-        </>
+        </li>
       ))}
-    </>
+    </ul>
   );
 };

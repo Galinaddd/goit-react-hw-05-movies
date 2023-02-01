@@ -1,14 +1,18 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-export const MoviesList = ({ movies, onClick }) => {
-  console.log('movie list  movies searchmovie', movies);
+export const MoviesList = ({ movies }) => {
+  const location = useLocation();
+
+  console.log('location in list ', location);
+
   return (
     <ul>
       {movies.map(movie => (
         <li key={movie.id}>
           <Link
             to={`/movies/${movie.id}`}
-            // state={{ from: location.pathname + location.search }}
+            // state={{ from: location }}
+            state={{ from: location.pathname + location.search }}
           >
             {movie.title || movie.name}
           </Link>

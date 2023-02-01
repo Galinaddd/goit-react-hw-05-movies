@@ -9,7 +9,7 @@ export const Cast = () => {
   useEffect(() => {
     const getmovieCreditsID = async () => {
       const movieCredits = await fetchMovieCredits(movieId);
-      console.log('MovieCredits', movieCredits);
+
       setCast(movieCredits);
     };
 
@@ -23,6 +23,7 @@ export const Cast = () => {
           <img
             src={`https://image.tmdb.org/t/p/w500${item.profile_path}
 `}
+            alt={item.name}
           />
           <h4>{item.name}</h4>
           <p>Character {item.character}</p>
