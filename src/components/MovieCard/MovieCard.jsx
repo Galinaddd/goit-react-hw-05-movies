@@ -1,4 +1,4 @@
-export const MovieCard = ({ movieInfo }) => {
+const MovieCard = ({ movieInfo }) => {
   return (
     <main>
       <img
@@ -38,3 +38,5 @@ export const MovieCard = ({ movieInfo }) => {
 function getGenres(arrOfGenres) {
   return arrOfGenres.map(genr => genr.name).join(', ');
 }
+
+export default MovieCard;

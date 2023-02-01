@@ -1,9 +1,10 @@
 import { fetchMovieDetails } from 'movieAPI';
-import { MovieCard } from 'components/MovieCard/MovieCard';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense, lazy } from 'react';
 
-export const MoviesDetails = () => {
+const MovieCard = lazy(() => import('components/MovieCard/MovieCard'));
+
+const MoviesDetails = () => {
   const [movie, setMovie] = useState();
   const { movieId } = useParams();
   const location = useLocation();
@@ -25,7 +26,6 @@ export const MoviesDetails = () => {
   return (
     <>
       <Link to={backLinkHref}>Go back</Link>
-      {/* <BackLink to={backLinkHref}>Back to products</BackLink> */}
       {movie && <MovieCard movieInfo={movie} />}
       <ul>
         <li>
@@ -35,7 +35,10 @@ export const MoviesDetails = () => {
           <Link to="reviews">Reviews</Link>
         </li>
       </ul>
-      <Outlet />
+      <Suspense fallback={<div>Loading subpage...</div>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
+export default MoviesDetails;

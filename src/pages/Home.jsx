@@ -2,7 +2,7 @@ import { fetchTraiding } from '../movieAPI';
 import { useState, useEffect } from 'react';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 
-export const Home = () => {
+const Home = () => {
   const [movies, setMovies] = useState(() => null);
 
   useEffect(() => {
@@ -26,3 +26,4 @@ export const Home = () => {
     </main>
   );
 };
+export default Home;
