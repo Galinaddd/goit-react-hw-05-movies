@@ -15,9 +15,10 @@ const Movies = () => {
   useEffect(() => {
     const searchMovies = async () => {
       try {
-        const visibleMovies = await fetchSearchMovie(searchQuery);
-
-        setMovies(visibleMovies);
+        if (searchQuery) {
+          const visibleMovies = await fetchSearchMovie(searchQuery);
+          setMovies(visibleMovies);
+        }
       } catch (error) {
         console.log(error);
       }

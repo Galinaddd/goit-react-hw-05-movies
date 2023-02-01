@@ -6,14 +6,10 @@ export const SearchBox = ({ onClick }) => {
   const handleSubmit = (values, { resetForm }) => {
     onClick(values);
     resetForm();
-    console.log('values', values.search);
-    setSearchParams({ search: values.search });
+    console.log('values', values.name);
+    setSearchParams({ search: values.name });
+    console.log('searchParams', searchParams);
   };
-
-  //   const handleSubmit = evt => {
-  //     console.log(evt.target.value);
-  //     onClick(evt);
-  //   };
 
   return (
     <Formik
