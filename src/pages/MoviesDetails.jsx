@@ -9,9 +9,7 @@ const MoviesDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();
 
-  const backLinkHref = location.state?.from;
-
-  console.log('location in details', backLinkHref);
+  const backLinkHref = location.state?.from ?? '/movies';
 
   useEffect(() => {
     const getMoviesByID = async () => {

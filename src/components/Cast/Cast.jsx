@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { fetchMovieCredits } from 'movieAPI';
 import { useState, useEffect } from 'react';
+import notfound from '../../images/notfound.png';
 import { ListItem, Img, Title } from './Cast.styled';
 
 const Cast = () => {
@@ -22,10 +23,14 @@ const Cast = () => {
       {cast ? (
         <ul>
           {cast.map(item => (
-            <ListItem key={item.id}>
+            <ListItem key={item.cast_id}>
               <Img
-                src={`https://image.tmdb.org/t/p/w500${item.profile_path}
-`}
+                src={
+                  item.profile_path
+                    ? `https://image.tmdb.org/t/p/w500${item.profile_path}
+`
+                    : notfound
+                }
                 alt={item.name}
               />
               <Title>{item.name}</Title>

@@ -18,7 +18,7 @@ const Reviews = () => {
 
   return (
     <>
-      {reviews ? (
+      {reviews.length > 0 ? (
         <ul>
           {reviews.map(review => (
             <li key={review.id}>
