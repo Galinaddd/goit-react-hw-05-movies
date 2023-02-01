@@ -29,10 +29,17 @@ const MoviesDetails = () => {
       {movie && <MovieCard movieInfo={movie} />}
       <ul>
         <li>
-          <Link to="cast">Cast</Link>
+          <Link to="cast" state={{ from: location.pathname + location.search }}>
+            Cast
+          </Link>
         </li>
         <li>
-          <Link to="reviews">Reviews</Link>
+          <Link
+            to="reviews"
+            state={{ from: location.pathname + location.search }}
+          >
+            Reviews
+          </Link>
         </li>
       </ul>
       <Suspense fallback={<div>Loading subpage...</div>}>
