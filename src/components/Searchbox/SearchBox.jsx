@@ -1,8 +1,11 @@
 import { Formik, Form, Field } from 'formik';
+import { Button } from './SearchBox.styled';
+import PropTypes from 'prop-types';
 
 export const SearchBox = ({ onClick }) => {
   const handleSubmit = (values, { resetForm }) => {
     onClick(values);
+
     resetForm();
   };
 
@@ -16,8 +19,12 @@ export const SearchBox = ({ onClick }) => {
       <Form>
         <Field type="text" name="search" />
 
-        <button type="submit">Submit</button>
+        <Button type="submit">Submit</Button>
       </Form>
     </Formik>
   );
+};
+
+SearchBox.propTypes = {
+  onClick: PropTypes.func.isRequired,
 };

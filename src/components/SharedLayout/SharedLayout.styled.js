@@ -3,6 +3,10 @@ import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div``;
 
+export const Div = styled.div`
+  padding: 20px 20px;
+`;
+
 export const Header = styled.header`
   padding: 20px;
   box-shadow: 1px 4px 6px 0px rgba(0, 0, 0, 0.75);

@@ -1,8 +1,21 @@
 import { fetchMovieDetails } from 'movieAPI';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { useState, useEffect, Suspense, lazy } from 'react';
+import { Div } from 'components/SharedLayout/SharedLayout.styled';
+import styled from 'styled-components';
+import { FaArrowLeft } from 'react-icons/fa';
 
 const MovieCard = lazy(() => import('components/MovieCard/MovieCard'));
+
+const BackLink = styled(Link)`
+  text-decoration: none;
+  font-weight: 700;
+  color: #000000;
+  &:focus,
+  &:hover {
+    color: #ff0000;
+  }
+`;
 
 const MoviesDetails = () => {
   const [movie, setMovie] = useState();
@@ -22,8 +35,11 @@ const MoviesDetails = () => {
   }, [movieId]);
 
   return (
-    <>
-      <Link to={backLinkHref}>Go back</Link>
+    <Div>
+      <BackLink to={backLinkHref}>
+        <FaArrowLeft />
+        Go back
+      </BackLink>
       {movie && <MovieCard movieInfo={movie} />}
       <ul>
         <li>
@@ -43,7 +59,8 @@ const MoviesDetails = () => {
       <Suspense fallback={<div>Loading subpage...</div>}>
         <Outlet />
       </Suspense>
-    </>
+    </Div>
   );
 };
+
 export default MoviesDetails;
