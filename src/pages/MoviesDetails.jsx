@@ -22,7 +22,7 @@ const MoviesDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();
 
-  const backLinkHref = location.state?.from ?? '/movies';
+  const backLinkHref = location.state?.from ?? '/';
 
   useEffect(() => {
     const getMoviesByID = async () => {
@@ -43,15 +43,12 @@ const MoviesDetails = () => {
       {movie && <MovieCard movieInfo={movie} />}
       <ul>
         <li>
-          <Link to="cast" state={{ from: location.pathname + location.search }}>
+          <Link to="cast" state={{ from: backLinkHref }}>
             Cast
           </Link>
         </li>
         <li>
-          <Link
-            to="reviews"
-            state={{ from: location.pathname + location.search }}
-          >
+          <Link to="reviews" state={{ from: backLinkHref }}>
             Reviews
           </Link>
         </li>

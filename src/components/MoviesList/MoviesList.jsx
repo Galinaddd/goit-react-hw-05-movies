@@ -24,14 +24,10 @@ export const MoviesList = ({ movies }) => {
 MoviesList.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.shape({
-      poster_path: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
       title: PropTypes.string,
-      vote_average: PropTypes.number.isRequired,
-      vote_count: PropTypes.number.isRequired,
-      popularity: PropTypes.number.isRequired,
-      original_title: PropTypes.string,
-      genres: PropTypes.array,
-      overview: PropTypes.string,
+           name: PropTypes.string,
+     
     })
   ).isRequired,
 };
